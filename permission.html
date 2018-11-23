@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hall Permission</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!--  -->
+<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+    <script src="https://use.fontawesome.com/b3f6a18a0c.js"></script>
+    <script src="clockface.js"></script>
+    <link rel="stylesheet" href="clockface.css">
+
+<!-- Bootstrap Date-Picker Plugin -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+
+    <script>
+    $(document).ready(function(){
+      var date_input=$('input[name="date"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'mm/dd/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
+     $(document).ready(function(){
+      var date_input=$('input[name="date1"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'mm/dd/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
+</script>
+     <style>
+        body,html {
+            height: 100%;
+            width: 100%;
+        }
+         #panel{
+             height: 700px;
+             margin-top:50px;
+
+         }
+    </style>
+</head>
+<body class="bg">
+    <div class="container" id="panel">
+        <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-xs-12" style="background-color: lightblue;padding: 50px;  box-shadow: 5px 5px 5px #888; border-radius: 4px;">
+            <div class="panel-heading">
+                <h1 align="center">Hall Permission Form</h1>
+            </div>
+   
+        <form action="action_page.php"  method="post" id="contact_form">
+            
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input  type="text" class="form-control" name="name" placeholder="Name">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
+                <input  type="text" class="form-control" name="rollno" placeholder="Roll number">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input  type="text" class="form-control" name="email" placeholder="Email ID">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                <input  type="tel" class="form-control" name="mobile" placeholder="Mobile number">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-university" aria-hidden="true"></i></span>
+                <input  type="text" class="form-control" name="hallno" placeholder="Hall number">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-question-sign"></i></span>
+<!--                <input id="purpose" type="text" class="form-control" name="purpose" placeholder="Purpose">-->
+               <textarea class="form-control" rows="2" name="purpose" placeholder="Purpose"></textarea>
+            </div>
+             <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                <input class="form-control" name="date1" placeholder="MM/DD/YYY" type="text"/>
+            </div>
+            
+
+            
+           <div class="input-group"> <!-- Date input -->
+<!--                <label class="control-label" for="date">Date</label>-->
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                <input class="form-control" name="date" placeholder="MM/DD/YYY" type="text"/>
+           </div>
+        
+           <div class="input-group">
+                 
+                <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                <input type="text" id="t1" name="fromtime" data-format="hh:mm A" class="form-control" placeholder="From">
+            </div>
+            
+             <div class="input-group">
+                 
+                <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                <input type="text" id="t2" name="totime" data-format="hh:mm A" class="form-control" placeholder="To">
+            </div>
+            <button type="submit" class="btn btn-md btn-primary btn-block" value="Generate"> Generate</button>
+            <script>
+            $(function(){
+                    $('#t1').clockface();  
+                });         
+            </script>
+            <script>
+            $(function(){
+                    $('#t2').clockface();  
+                });         
+            </script>
+            
+        </form>
+        </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+  <script type="text/javascript">
+     $(document).ready(function() {
+    $('#contact_form').bootstrapValidator({
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            name: {
+                validators: {
+                        stringLength: {
+                        min: 5;
+                    },
+                        notEmpty: {
+                        message: 'Please supply your first name'
+                    }
+                }
+            },
+             rollno: {
+                validators: {
+                     stringLength: {
+                        min:9;
+                        max:9;
+                    },
+                    notEmpty: {
+                        message: 'Please supply your rollno'
+                    }
+                }
+            },
+            email: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please supply your email address'
+                    },
+                    emailAddress: {
+                        message: 'Please supply a valid email address'
+                    }
+                }
+            },
+            phone: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please supply your phone number'
+                    },
+                    phone: {
+                        country: 'IND',
+                        message: 'Please supply a vaild phone number '
+                    }
+                }
+            },
+            hallno: {
+                validators: {
+                     stringLength: {
+                        min: 3,
+                    },
+                    notEmpty: {
+                        message: 'Please supply hallno '
+                    }
+                }
+            },
+            approxstrength{
+                validators: {
+                    
+                    notEmpty: {
+                        message: 'Please enter approx strength'
+                    }
+                }
+            },
+            date: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please select your state'
+                    }
+                }
+            },
+           fromtime:{
+            validators:{
+
+            }
+            }
+            purpose: {
+                validators: {
+                      stringLength: {
+                        min: 10,
+                        max: 200,
+                        message:'Please enter at least 10 characters and no more than 200'
+                    },
+                    notEmpty: {
+                        message: 'Please supply a description of your purpose'
+                    }
+                    }
+                }
+            }
+        })
+        .on('success.form.bv', function(e) {
+            $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
+                $('#contact_form').data('bootstrapValidator').resetForm();
+
+            // Prevent form submission
+            e.preventDefault();
+
+            // Get the form instance
+            var $form = $(e.target);
+
+            // Get the BootstrapValidator instance
+            var bv = $form.data('bootstrapValidator');
+
+            // Use Ajax to submit form data
+            $.post($form.attr('action'), $form.serialize(), function(result) {
+                console.log(result);
+            }, 'json');
+        });
+});
+
+  </script>
+</html>
